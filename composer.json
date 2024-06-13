@@ -1,0 +1,29 @@
+{
+    "name": "ngphp/routing",
+    "description": "A simple and flexible routing library for PHP applications.",
+    "type": "library",
+    "keywords": ["routing", "router", "rest-router", "http-router"],
+    "homepage": "https://ngphp.com",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vedat Yıldırım",
+            "email": "vedatyildirimofficial@gmail.com",
+            "homepage": "https://vedatyildirim.com",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/ngphp/issues",
+        "source": "https://github.com/ngphp/routing"
+    },
+    "require": {
+        "php": ">=8.0"
+    },    
+    "autoload": {
+        "psr-4": {
+            "ngphp\\http\\": "src/http/",
+            "NGPHP\\App\\": "app/"
+        }
+    }
+}
