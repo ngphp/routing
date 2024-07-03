@@ -216,10 +216,91 @@ example/
 │   ├── Entity/User.php
 │   ├── Repository/UserRepository.php
 │   ├── Service/UserService.php
+├── example.php
 ├── composer.json
 └── README.md
 ```
 
+## Testing
+
+To test the NextPHP Data package, you can create an `index.php` file and use the service layer to perform various CRUD operations. Here is an example of how you can do this:
+
+### Example index or example.php
+
+```php
+<?php
+require 'vendor/autoload.php';
+
+use Example\UserService;
+use Example\UserRepository;
+use Example\PostService;
+use Example\PostRepository;
+
+// Initialize the repositories
+$userRepository = new UserRepository();
+$postRepository = new PostRepository();
+
+// Initialize the services
+$userService = new UserService($userRepository);
+$postService = new PostService($postRepository);
+
+// Example: Register a new user
+$newUser = $userService->registerUser([
+    'name' => 'John Doe',
+    'email' => 'john@example.com',
+    'password' => 'secret',
+]);
+
+echo "New User Registered: " . $newUser->name . "\n";
+
+// Example: Get all users
+$users = $userService->getAllUsers();
+echo "All Users:\n";
+print_r($users);
+
+// Example: Get a user by ID
+$user = $userService->getUserById($newUser->id);
+echo "User with ID {$newUser->id}:\n";
+print_r($user);
+
+// Example: Update a user
+$updatedUser = $userService->updateUser($newUser->id, ['name' => 'Jane Doe']);
+echo "Updated User: " . $updatedUser->name . "\n";
+
+// Example: Delete a user
+$isDeleted = $userService->deleteUser($newUser->id);
+echo "User Deleted: " . ($isDeleted ? 'Yes' : 'No') . "\n";
+
+// Example: Create a new post
+$newPost = $postService->createPost([
+    'title' => 'Hello World',
+    'content' => 'This is my first post!',
+    'user_id' => $newUser->id, // Assign the post to the new user
+]);
+
+echo "New Post Created: " . $newPost->title . "\n";
+
+// Example: Get all posts
+$posts = $postService->getAllPosts();
+echo "All Posts:\n";
+print_r($posts);
+
+// Example: Get a post by ID
+$post = $postService->getPostById($newPost->id);
+echo "Post with ID {$newPost->id}:\n";
+print_r($post);
+
+// Example: Update a post
+$updatedPost = $postService->updatePost($newPost->id, ['title' => 'Updated Title']);
+echo "Updated Post: " . $updatedPost->title . "\n";
+
+// Example: Delete a post
+$isPostDeleted = $postService->deletePost($newPost->id);
+echo "Post Deleted: " . ($isPostDeleted ? 'Yes' : 'No') . "\n";
+```
+
+<br><br><hr><br>
+    
 ### FAQ
 ### Q: How do I define an entity?
 
