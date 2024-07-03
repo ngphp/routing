@@ -1,13 +1,15 @@
 # NextPHP Data Package
 
-The NextPHP Data package is a powerful tool for PHP developers, providing ORM capabilities and direct SQL query execution. It simplifies database interactions by allowing developers to work with objects instead of raw SQL queries. With support for attributes to define entities and relationships, NextPHP Data ensures a clean and efficient codebase.
+The [NextPHP Data](https://packagist.org/packages/nextphp/data) package is a powerful tool for PHP developers, providing ORM capabilities and direct SQL query execution. It simplifies database interactions by allowing developers to work with objects instead of raw SQL queries. With support for attributes to define entities and relationships, NextPHP Data ensures a clean and efficient codebase.
+
+This package is part of the [NextPHP Framework](https://https://github.com/nextphp-projects/nextphp), a modern and lightweight PHP framework designed for performance and scalability. [NextPHP](https://nextphp.io) aims to provide a comprehensive suite of tools and libraries to streamline the development process.
 
 ## Features
 
 - ORM with attribute-based entity definitions
 - Direct SQL query capabilities
 - Transactional support
-- Relationship handling (OneToMany, ManyToOne, ManytoMany etc.)
+- Relationship handling (OneToMany, ManyToOne, etc.)
 - Easy integration with existing projects
 
 ## Installation
@@ -299,80 +301,42 @@ $isPostDeleted = $postService->deletePost($newPost->id);
 echo "Post Deleted: " . ($isPostDeleted ? 'Yes' : 'No') . "\n";
 ```
 
+## Contributing
+
+We welcome contributions! Here’s how you can help:
+
+- **Report Issues:** Found a bug? Report it on GitHub.
+- **Suggest Features:** Have an idea? Share it with us.
+- **Submit Pull Requests:** Improve the codebase.
+- **Enhance Documentation:** Help us improve our docs.
+
+For more details, see our [Contribution Guidelines](contribution-guidelines.md).
+
+## Resources
+
+- [Official Website](https://nextphp.io)
+- [GitHub Repository](https://github.com/nextphp-projects/nextphp)
+- [Documentation](https://github.com/nextphp-projects/nextphp)
+
+## Join Our Community
+
+- **Twitter:** Follow us on [Twitter](https://twitter.com/NextPHPOfficial)
+- **Discord:** Join our [Discord](https://discord.gg/nextphp) community.
+
+## Contact Us
+
+- **Email:** support@nextphp.io
+- **Forum:** [NextPHP Mastodon](https://mastodon.social/@nextphp)
+- **GitHub Issues:** [NextPHP GitHub](https://github.com/nextphp-projects/nextphp/issues)
+
+Thank you for being part of the NextPHP community!
+
 <br><br><hr><br>
     
 ### FAQ
+
 ### Q: How do I define an entity?
 
 A: Use the #[Entity] attribute to define a class as an entity and the #[Entity(name: "table_name")]  OR #[Table(name: "table_name")] attribute to specify the table name.
 
-### Q: How do I define a repository?
-
-A: Extend the `BaseRepository` class and use the `#[Repository(entityClass: EntityClass::class)]` attribute to specify the entity class.
-
-By extending the `BaseRepository` class, your repository automatically inherits several powerful methods for interacting with the database. Here are some of the key methods available:
-
-- **save(array $data)**: Saves a new entity to the database.
-    ```php
-    $userArray = [
-        'name' => 'John Doe',
-        'email' => 'john@example.com',
-        'password' => password_hash('secret', PASSWORD_DEFAULT),
-    ];
-    $userRepository->save($userArray);
-    ```
-
-- **update(int $id, array $data)**: Updates an existing entity in the database.
-    ```php
-    $updateData = ['name' => 'Jane Doe'];
-    $userRepository->update(1, $updateData);
-    ```
-
-- **delete(int $id)**: Deletes an entity from the database by its ID.
-    ```php
-    $userRepository->delete(1);
-    ```
-
-- **find(int $id)**: Finds an entity by its ID.
-    ```php
-    $user = $userRepository->find(1);
-    ```
-
-- **findAll()**: Retrieves all entities from the database.
-    ```php
-    $users = $userRepository->findAll();
-    ```
-
-- **findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)**: Finds entities based on specified criteria.
-    ```php
-    $criteria = ['email' => 'john@example.com'];
-    $users = $userRepository->findBy($criteria);
-    ```
-
-- **count(array $criteria)**: Counts entities based on specified criteria.
-    ```php
-    $count = $userRepository->count(['email' => 'john@example.com']);
-    ```
-
-- **distinct($field, array $criteria = [])**: Finds distinct values for a specified field.
-    ```php
-    $distinctEmails = $userRepository->distinct('email');
-    ```
-
-- **orderBy(array $criteria, array $orderBy)**: Orders entities based on specified criteria and order.
-    ```php
-    $orderedUsers = $userRepository->orderBy(['name' => 'John Doe'], ['email' => 'ASC']);
-    ```
-
-- **having(array $criteria, array $having)**: Filters entities based on specified criteria and having conditions.
-    ```php
-    $havingUsers = $userRepository->having(['name' => 'John Doe'], ['count' => '> 1']);
-    ```
-
-These methods provide a flexible and powerful way to interact with your database, making CRUD operations and more complex queries straightforward and efficient.
-
-### Q: How do I perform transactional operations?
-
-A: Use the #[Transactional] attribute on methods that should be executed within a transaction.
-
-***This documentation provides a comprehensive guide to using the NextPHP Data package, including installation, basic and advanced usage, and an example project.***
+For more details, see our [Contribution Guidelines](FAQ.md).
