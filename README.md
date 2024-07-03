@@ -339,4 +339,4 @@ Thank you for being part of the NextPHP community!
 
 A: Use the #[Entity] attribute to define a class as an entity and the #[Entity(name: "table_name")]  OR #[Table(name: "table_name")] attribute to specify the table name.
 
-For more details, see our [Contribution Guidelines](FAQ.md).
+For more details, see our [FAQ Guidelines](FAQ.md).
