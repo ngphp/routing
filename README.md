@@ -310,7 +310,7 @@ We welcome contributions! Here’s how you can help:
 - **Submit Pull Requests:** Improve the codebase.
 - **Enhance Documentation:** Help us improve our docs.
 
-For more details, see our [Contribution Guidelines](contribution-guidelines.md).
+For more details, see our [Contribution Guidelines](Contributing.md).
 
 ## Resources
 
